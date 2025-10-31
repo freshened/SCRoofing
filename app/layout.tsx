@@ -17,6 +17,12 @@ export const metadata: Metadata = {
   },
   description:
     "Professional roofing, siding, gutter, and painting services in Greater Cincinnati, Northern Kentucky, and Eastern Indiana. GAF certified with 30+ years experience. Free quotes available.",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  },
   keywords: [
     "roofing Cincinnati",
     "roof repair Cincinnati",

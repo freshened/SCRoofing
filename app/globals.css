@@ -122,6 +122,27 @@
   }
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  input,
+  textarea {
+    font-size: 16px;
+  }
+  
+  @media (max-width: 640px) {
+    input,
+    textarea,
+    select {
+      font-size: 16px;
+    }
   }
 }
 

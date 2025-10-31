@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Shield, Award, Clock, Phone, FileText } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { BusinessHoursStatus } from "@/components/business-hours-status"
 
 export function Hero() {
@@ -8,16 +9,19 @@ export function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img
+        <Image
           src="/modern-house-with-beautiful-roof-aerial-view-blue-.jpg"
           alt="Professional roofing"
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-secondary/30 to-primary/40" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:pb-24">
         <div className="max-w-5xl mx-auto text-center">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
             <div className="inline-flex items-center gap-2 glass-card rounded-full px-5 py-2.5 border border-white/20">
@@ -44,25 +48,25 @@ export function Hero() {
             <Link href="https://app.roofr.com/instant-estimator/dd1a61ee-814b-4a77-a1f8-4ad046f32fb7/StuartConradRoofing" target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"
-                className="text-lg px-10 py-7 gap-2 rounded-full shadow-xl hover:shadow-2xl transition-all glass-card bg-primary/90 backdrop-blur-md border-2 border-white/20 hover:bg-primary"
+                className="text-base sm:text-lg px-8 sm:px-10 py-6 sm:py-7 min-h-[44px] gap-2 rounded-full shadow-xl hover:shadow-2xl transition-all glass-card bg-primary/90 backdrop-blur-md border-2 border-white/20 hover:bg-primary w-full sm:w-auto"
               >
                 Instant Estimator
                 <ArrowRight className="h-5 w-5" />
               </Button>
             </Link>
-            <Link href="/contact">
+            <Link href="/contact" className="w-full sm:w-auto">
               <Button
                 size="lg"
-                className="text-lg px-10 py-7 gap-2 rounded-full shadow-xl hover:shadow-2xl transition-all glass-card bg-primary/90 backdrop-blur-md border-2 border-white/20 hover:bg-primary"
+                className="text-base sm:text-lg px-8 sm:px-10 py-6 sm:py-7 min-h-[44px] gap-2 rounded-full shadow-xl hover:shadow-2xl transition-all glass-card bg-primary/90 backdrop-blur-md border-2 border-white/20 hover:bg-primary w-full sm:w-auto"
               >
                 <FileText className="h-5 w-5" />
                 Request a Quote
               </Button>
             </Link>
-            <Link href="tel:+15133800592">
+            <Link href="tel:+15133800592" className="w-full sm:w-auto">
               <Button
                 size="lg"
-                className="text-lg px-10 py-7 gap-2 rounded-full shadow-xl hover:shadow-2xl transition-all glass-card bg-primary/90 backdrop-blur-md border-2 border-white/20 hover:bg-primary"
+                className="text-base sm:text-lg px-8 sm:px-10 py-6 sm:py-7 min-h-[44px] gap-2 rounded-full shadow-xl hover:shadow-2xl transition-all glass-card bg-primary/90 backdrop-blur-md border-2 border-white/20 hover:bg-primary w-full sm:w-auto"
               >
                 <Phone className="h-5 w-5" />
                 Call Now
@@ -70,20 +74,20 @@ export function Hero() {
             </Link>
           </div>
 
-          <div className="glass rounded-full px-8 py-6 inline-flex flex-wrap items-center justify-center gap-6 sm:gap-8 shadow-xl">
+          <div className="glass rounded-2xl sm:rounded-full px-6 sm:px-8 py-6 inline-flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 shadow-xl max-w-full mb-12 sm:mb-16">
             <div className="flex items-center gap-3">
-              <Shield className="h-6 w-6 text-primary" />
-              <span className="font-semibold text-foreground text-sm sm:text-base">Licensed & Insured</span>
+              <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
+              <span className="font-semibold text-foreground text-sm sm:text-base whitespace-nowrap">Licensed & Insured</span>
             </div>
             <div className="hidden sm:block w-px h-8 bg-foreground/20" />
             <div className="flex items-center gap-3">
-              <Award className="h-6 w-6 text-secondary" />
-              <span className="font-semibold text-foreground text-sm sm:text-base">50-year Transferrable Warranties </span>
+              <Award className="h-5 w-5 sm:h-6 sm:w-6 text-secondary flex-shrink-0" />
+              <span className="font-semibold text-foreground text-xs sm:text-base text-center sm:text-left">50-year Transferrable Warranties</span>
             </div>
             <div className="hidden sm:block w-px h-8 bg-foreground/20" />
             <div className="flex items-center gap-3">
-              <Clock className="h-6 w-6 text-primary" />
-              <span className="font-semibold text-foreground text-sm sm:text-base">Same-Day Service</span>
+              <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
+              <span className="font-semibold text-foreground text-sm sm:text-base whitespace-nowrap">Same-Day Service</span>
             </div>
           </div>
         </div>

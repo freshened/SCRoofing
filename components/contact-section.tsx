@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Phone, Mail, MapPin, Send } from "lucide-react"
+import Image from "next/image"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -27,7 +28,14 @@ export function ContactSection() {
     <section id="contact" className="py-24 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 z-0">
-        <img src="/professional-roofing-team-working-on-house.jpg" alt="Contact us" className="w-full h-full object-cover" />
+        <Image
+          src="/professional-roofing-team-working-on-house.jpg"
+          alt="Contact us"
+          fill
+          className="object-cover"
+          loading="lazy"
+          sizes="100vw"
+        />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-secondary/70 to-primary/80" />
       </div>
 
@@ -94,10 +102,12 @@ export function ContactSection() {
                   </Label>
                   <Input
                     id="name"
+                    type="text"
+                    autoComplete="name"
                     placeholder="John Smith"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="mt-2 glass-card border-2"
+                    className="mt-2 glass-card border-2 min-h-[44px] text-base"
                     required
                   />
                 </div>
@@ -109,10 +119,12 @@ export function ContactSection() {
                   <Input
                     id="email"
                     type="email"
+                    inputMode="email"
+                    autoComplete="email"
                     placeholder="john@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="mt-2 glass-card border-2"
+                    className="mt-2 glass-card border-2 min-h-[44px] text-base"
                     required
                   />
                 </div>
@@ -124,10 +136,11 @@ export function ContactSection() {
                   <Input
                     id="phone"
                     type="tel"
+                    inputMode="tel"
                     placeholder="(513) 380-0592"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="mt-2 glass-card border-2"
+                    className="mt-2 glass-card border-2 min-h-[44px] text-base"
                     required
                   />
                 </div>
@@ -141,12 +154,12 @@ export function ContactSection() {
                     placeholder="Tell us about your roofing needs..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="mt-2 glass-card border-2 min-h-32"
+                    className="mt-2 glass-card border-2 min-h-32 text-base"
                     required
                   />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full gap-2">
+                <Button type="submit" size="lg" className="w-full gap-2 min-h-[44px] text-base">
                   Send Message
                   <Send className="h-4 w-4" />
                 </Button>

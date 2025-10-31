@@ -23,6 +23,13 @@ interface OpeningHours {
   }>
 }
 
+interface Photo {
+  height: number
+  html_attributions: string[]
+  photo_reference: string
+  width: number
+}
+
 interface GooglePlaceDetails {
   result: {
     rating: number
@@ -30,6 +37,7 @@ interface GooglePlaceDetails {
     reviews: GoogleReview[]
     url?: string
     opening_hours?: OpeningHours
+    photos?: Photo[]
   }
   status: string
 }
@@ -47,7 +55,7 @@ export async function GET() {
 
   try {
     const response = await fetch(
-      `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=rating,user_ratings_total,reviews,url,opening_hours&key=${apiKey}`,
+      `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=rating,user_ratings_total,reviews,url,opening_hours,photos&key=${apiKey}`,
       {
         next: { revalidate: 3600 },
       }
@@ -68,6 +76,7 @@ export async function GET() {
     const totalReviews = data.result.user_ratings_total || 0
     const googleUrl = data.result.url || `https://www.google.com/maps/place/?q=place_id:${placeId}`
     const openingHours = data.result.opening_hours
+    const photos = data.result.photos || []
 
     let isOpen = false
     let nextTime: string | null = null
@@ -126,6 +135,14 @@ export async function GET() {
       }
     }
 
+    const photosWithUrls = photos.slice(0, 10).map((photo) => ({
+      photoReference: photo.photo_reference,
+      width: photo.width,
+      height: photo.height,
+      url: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=${photo.photo_reference}&key=${apiKey}`,
+      thumbnailUrl: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photo.photo_reference}&key=${apiKey}`,
+    }))
+
     return NextResponse.json({
       reviews: reviews.map((review) => ({
         name: review.author_name,
@@ -142,6 +159,7 @@ export async function GET() {
         status,
         nextTime,
       },
+      photos: photosWithUrls,
     })
   } catch (error) {
     console.error("Error fetching Google reviews:", error)

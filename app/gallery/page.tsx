@@ -1,66 +1,45 @@
+"use client"
+
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
+import { useEffect, useState } from "react"
+import { Loader2 } from "lucide-react"
 
-export const metadata = {
-  title: "Project Gallery - Stuart Conrad Roofing | Our Completed Projects",
-  description:
-    "View our completed roofing, siding, gutter, and painting projects in Greater Cincinnati, Northern Kentucky, and Eastern Indiana. Quality workmanship showcased.",
-  openGraph: {
-    title: "Project Gallery - Stuart Conrad Roofing | Our Completed Projects",
-    description:
-      "See the quality of our work through photos of completed roofing and home improvement projects.",
-    url: "https://stuartconradroofing.com/gallery",
-    siteName: "Stuart Conrad Roofing Services",
-    images: [
-      {
-        url: "https://stuartconradroofing.com/og-image.jpg",
-        width: 1200,
-        height: 630,
-      },
-    ],
-    type: "website",
-  },
+interface GooglePhoto {
+  photoReference: string
+  width: number
+  height: number
+  url: string
+  thumbnailUrl: string
 }
 
-const galleryImages = [
-  {
-    src: "/roof1.jpg",
-    alt: "New asphalt shingle roof installation",
-  },
-  {
-    src: "/roof2.png",
-    alt: "Modern metal roof installation",
-  },
-  {
-    src: "/roof3.jpg",
-    alt: "Roof repair after storm damage",
-  },
-  {
-    src: "/roof4.png",
-    alt: "Beautiful roof aerial view",
-  },
-  {
-    src: "/roof8.png",
-    alt: "New vinyl siding installation",
-  },
-  {
-    src: "/roof6.png",
-    alt: "Fiber cement siding installation",
-  },
-  {
-    src: "/roof7.png",
-    alt: "Seamless gutter installation",
-  },
-  {
-    src: "/roof5.png",
-    alt: "Gutter guards installation",
-  },
-]
-
 export default function GalleryPage() {
+  const [googlePhotos, setGooglePhotos] = useState<GooglePhoto[]>([])
+  const [isLoadingPhotos, setIsLoadingPhotos] = useState(true)
+
+  useEffect(() => {
+    async function fetchGooglePhotos() {
+      try {
+        const response = await fetch("/api/google-reviews")
+        if (response.ok) {
+          const data = await response.json()
+          if (data.photos && data.photos.length > 0) {
+            setGooglePhotos(data.photos)
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching Google photos:", error)
+      } finally {
+        setIsLoadingPhotos(false)
+      }
+    }
+
+    fetchGooglePhotos()
+  }, [])
+
   return (
     <main className="min-h-screen">
       <Navigation />
@@ -91,18 +70,31 @@ export default function GalleryPage() {
       {/* Gallery Grid */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {galleryImages.map((image, index) => (
-              <div key={index} className="group relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-            ))}
-          </div>
+          {isLoadingPhotos ? (
+            <div className="flex justify-center items-center py-20">
+              <Loader2 className="h-8 w-8 animate-spin text-primary" />
+            </div>
+          ) : googlePhotos.length === 0 ? (
+            <div className="text-center py-20">
+              <p className="text-lg text-muted-foreground">No photos available at this time.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {googlePhotos.map((photo, index) => (
+                <div
+                  key={photo.photoReference || index}
+                  className="group relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer"
+                >
+                  <img
+                    src={photo.thumbnailUrl}
+                    alt={`Stuart Conrad Roofing project ${index + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
