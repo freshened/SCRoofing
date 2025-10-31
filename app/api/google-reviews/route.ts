@@ -143,24 +143,32 @@ export async function GET() {
       thumbnailUrl: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photo.photo_reference}&key=${apiKey}`,
     }))
 
-    return NextResponse.json({
-      reviews: reviews.map((review) => ({
-        name: review.author_name,
-        rating: review.rating,
-        date: review.relative_time_description,
-        text: review.text,
-        time: review.time,
-      })),
-      rating,
-      totalReviews,
-      googleUrl,
-      businessHours: {
-        isOpen,
-        status,
-        nextTime,
+    return NextResponse.json(
+      {
+        reviews: reviews.map((review) => ({
+          name: review.author_name,
+          rating: review.rating,
+          date: review.relative_time_description,
+          text: review.text,
+          time: review.time,
+        })),
+        rating,
+        totalReviews,
+        googleUrl,
+        businessHours: {
+          isOpen,
+          status,
+          nextTime,
+        },
+        photos: photosWithUrls,
       },
-      photos: photosWithUrls,
-    })
+      {
+        headers: {
+          "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+          "Content-Type": "application/json",
+        },
+      }
+    )
   } catch (error) {
     console.error("Error fetching Google reviews:", error)
     return NextResponse.json(

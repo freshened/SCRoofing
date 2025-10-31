@@ -1,38 +1,11 @@
 "use client"
 
 import { Clock } from "lucide-react"
-import { useEffect, useState } from "react"
-
-interface BusinessHours {
-  isOpen: boolean
-  status: "open" | "closed"
-  nextTime: string | null
-}
+import { useGoogleData } from "@/hooks/use-google-data"
 
 export function BusinessHoursStatus() {
-  const [businessHours, setBusinessHours] = useState<BusinessHours | null>(null)
-  const [isLoading, setIsLoading] = useState<boolean>(true)
-
-  useEffect(() => {
-    async function fetchBusinessHours() {
-      try {
-        const response = await fetch("/api/google-reviews")
-        
-        if (response.ok) {
-          const data = await response.json()
-          if (data.businessHours) {
-            setBusinessHours(data.businessHours)
-          }
-        }
-      } catch (err) {
-        console.error("Error loading business hours:", err)
-      } finally {
-        setIsLoading(false)
-      }
-    }
-
-    fetchBusinessHours()
-  }, [])
+  const { data, isLoading } = useGoogleData()
+  const businessHours = data?.businessHours
 
   if (isLoading || !businessHours) {
     return null

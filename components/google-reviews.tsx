@@ -2,7 +2,7 @@
 
 import { Star, ExternalLink, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useEffect, useState } from "react"
+import { useGoogleData } from "@/hooks/use-google-data"
 
 interface Review {
   name: string
@@ -33,59 +33,14 @@ const fallbackReviews: Review[] = [
   },
 ]
 
-interface BusinessHours {
-  isOpen: boolean
-  status: "open" | "closed"
-  nextTime: string | null
-}
-
 export function GoogleReviews() {
-  const [reviews, setReviews] = useState<Review[]>([])
-  const [rating, setRating] = useState<number>(5)
-  const [totalReviews, setTotalReviews] = useState<number>(82)
-  const [googleUrl, setGoogleUrl] = useState<string>("https://www.google.com/search?q=stuart+conrad+roofing#lrd=0x0:0x0,1")
-  const [businessHours, setBusinessHours] = useState<BusinessHours | null>(null)
-  const [isLoading, setIsLoading] = useState<boolean>(true)
-  const [error, setError] = useState<string | null>(null)
+  const { data, isLoading, error: dataError } = useGoogleData()
 
-  useEffect(() => {
-    async function fetchReviews() {
-      try {
-        setIsLoading(true)
-        const response = await fetch("/api/google-reviews")
-        
-        if (!response.ok) {
-          throw new Error("Failed to fetch reviews")
-        }
-
-        const data = await response.json()
-        
-        if (data.reviews && data.reviews.length > 0) {
-          setReviews(data.reviews.slice(0, 3))
-          setRating(data.rating || 5)
-          setTotalReviews(data.totalReviews || 82)
-          setGoogleUrl(data.googleUrl || "https://www.google.com/search?q=stuart+conrad+roofing#lrd=0x0:0x0,1")
-          if (data.businessHours) {
-            setBusinessHours(data.businessHours)
-          }
-        } else {
-          throw new Error("No reviews found")
-        }
-      } catch (err) {
-        console.error("Error loading Google reviews:", err)
-        setError("Unable to load reviews")
-        setReviews(fallbackReviews)
-      } finally {
-        setIsLoading(false)
-      }
-    }
-
-    fetchReviews()
-  }, [])
-
-  const displayReviews = reviews.length > 0 ? reviews : fallbackReviews
-  const displayRating = rating || 5
-  const displayTotal = totalReviews || 82
+  const displayReviews = data?.reviews && data.reviews.length > 0 ? data.reviews.slice(0, 3) : fallbackReviews
+  const displayRating = data?.rating || 5
+  const displayTotal = data?.totalReviews || 82
+  const googleUrl = data?.googleUrl || "https://www.google.com/search?q=stuart+conrad+roofing#lrd=0x0:0x0,1"
+  const error = dataError ? "Unable to load reviews" : null
 
   const getStarFill = (starIndex: number, rating: number) => {
     const fullStars = Math.floor(rating)

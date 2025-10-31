@@ -5,40 +5,12 @@ import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect, useState } from "react"
 import { Loader2 } from "lucide-react"
-
-interface GooglePhoto {
-  photoReference: string
-  width: number
-  height: number
-  url: string
-  thumbnailUrl: string
-}
+import { useGoogleData } from "@/hooks/use-google-data"
 
 export default function GalleryPage() {
-  const [googlePhotos, setGooglePhotos] = useState<GooglePhoto[]>([])
-  const [isLoadingPhotos, setIsLoadingPhotos] = useState(true)
-
-  useEffect(() => {
-    async function fetchGooglePhotos() {
-      try {
-        const response = await fetch("/api/google-reviews")
-        if (response.ok) {
-          const data = await response.json()
-          if (data.photos && data.photos.length > 0) {
-            setGooglePhotos(data.photos)
-          }
-        }
-      } catch (error) {
-        console.error("Error fetching Google photos:", error)
-      } finally {
-        setIsLoadingPhotos(false)
-      }
-    }
-
-    fetchGooglePhotos()
-  }, [])
+  const { data, isLoading: isLoadingPhotos } = useGoogleData()
+  const googlePhotos = data?.photos || []
 
   return (
     <main className="min-h-screen">
