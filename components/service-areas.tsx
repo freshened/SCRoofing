@@ -1,17 +1,21 @@
 import { MapPin } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
+import Link from "next/link"
 
 const areas = [
   {
     region: "Greater Cincinnati, OH",
+    slug: "cincinnati-oh",
     description: "Serving all Cincinnati neighborhoods and surrounding areas",
   },
   {
     region: "Northern Kentucky",
+    slug: "northern-kentucky",
     description: "Complete coverage across Northern Kentucky communities",
   },
   {
     region: "Eastern Indiana",
+    slug: "eastern-indiana",
     description: "Professional service throughout Eastern Indiana",
   },
 ]
@@ -31,15 +35,17 @@ export function ServiceAreas() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {areas.map((area, index) => (
-            <Card key={index} className="glass-card border-2 hover:shadow-xl transition-all duration-300">
-              <CardContent className="p-8 text-center">
-                <div className="inline-flex p-4 rounded-2xl bg-primary/10 mb-4">
-                  <MapPin className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{area.region}</h3>
-                <p className="text-muted-foreground leading-relaxed">{area.description}</p>
-              </CardContent>
-            </Card>
+            <Link key={index} href={`/locations/${area.slug}`} className="block">
+              <Card className="glass-card border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full">
+                <CardContent className="p-8 text-center">
+                  <div className="inline-flex p-4 rounded-2xl bg-primary/10 mb-4">
+                    <MapPin className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-3">{area.region}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{area.description}</p>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
       </div>

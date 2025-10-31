@@ -33,11 +33,18 @@ const fallbackReviews: Review[] = [
   },
 ]
 
+interface BusinessHours {
+  isOpen: boolean
+  status: "open" | "closed"
+  nextTime: string | null
+}
+
 export function GoogleReviews() {
   const [reviews, setReviews] = useState<Review[]>([])
   const [rating, setRating] = useState<number>(5)
   const [totalReviews, setTotalReviews] = useState<number>(82)
   const [googleUrl, setGoogleUrl] = useState<string>("https://www.google.com/search?q=stuart+conrad+roofing#lrd=0x0:0x0,1")
+  const [businessHours, setBusinessHours] = useState<BusinessHours | null>(null)
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -58,6 +65,9 @@ export function GoogleReviews() {
           setRating(data.rating || 5)
           setTotalReviews(data.totalReviews || 82)
           setGoogleUrl(data.googleUrl || "https://www.google.com/search?q=stuart+conrad+roofing#lrd=0x0:0x0,1")
+          if (data.businessHours) {
+            setBusinessHours(data.businessHours)
+          }
         } else {
           throw new Error("No reviews found")
         }

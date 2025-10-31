@@ -9,6 +9,7 @@ const benefits = [
   "Safe and secure roofing work",
   "Price matching on reasonable quotes",
   "Helpful insurance claim support",
+  "Flexible financing options available",
   "Fully licensed and insured",
   "Service available within two weeks",
   "Workmanship warranties available",
@@ -30,7 +31,7 @@ export function WhyChooseUs() {
               Why Choose Stuart Conrad Roofing?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
-              We bring over three decades of expertise and a customer-centric approach to every project.
+              We bring over three decades of expertise and a customer-centric approach to every project, with flexible financing options to help make quality roofing accessible.
             </p>
           </div>
 

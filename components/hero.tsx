@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Shield, Award, Clock, Phone, FileText } from "lucide-react"
 import Link from "next/link"
+import { BusinessHoursStatus } from "@/components/business-hours-status"
 
 export function Hero() {
   return (
@@ -18,9 +19,12 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-20">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 glass-card rounded-full px-5 py-2.5 mb-8 border border-white/20">
-            <Award className="h-4 w-4 text-primary" />
-            <span className="text-sm font-semibold text-foreground">GAF Certified • 30+ Years Excellence</span>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
+            <div className="inline-flex items-center gap-2 glass-card rounded-full px-5 py-2.5 border border-white/20">
+              <Award className="h-4 w-4 text-primary" />
+              <span className="text-sm font-semibold text-foreground">GAF Certified • 30+ Years Excellence</span>
+            </div>
+            <BusinessHoursStatus />
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-foreground mb-6 text-balance leading-[1.1] tracking-tight">
