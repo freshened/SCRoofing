@@ -25,6 +25,7 @@ export default function GalleryPage() {
             fill
             className="object-cover opacity-20"
             priority
+            sizes="100vw"
           />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,11 +58,13 @@ export default function GalleryPage() {
                   key={photo.photoReference || index}
                   className="group relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer"
                 >
-                  <img
+                  <Image
                     src={photo.thumbnailUrl}
                     alt={`Stuart Conrad Roofing project ${index + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-110"
                     loading="lazy"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 </div>
               ))}

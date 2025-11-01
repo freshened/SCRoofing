@@ -1,0 +1,6 @@
+# ads.txt file for stuartconradroofing.com
+# This file lists authorized digital sellers for this domain.
+# Format: <DOMAIN>, <SELLER_ACCOUNT_ID>, <RELATIONSHIP>, <CERTIFICATION_AUTHORITY_ID>
+#
+# Add your authorized sellers here when ready.
+

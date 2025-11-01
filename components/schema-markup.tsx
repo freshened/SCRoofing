@@ -190,6 +190,7 @@ export function SchemaMarkup({ type, data }: SchemaMarkupProps) {
     <Script
       id={`schema-${type}`}
       type="application/ld+json"
+      strategy="afterInteractive"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
   )
