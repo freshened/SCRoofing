@@ -305,6 +305,5 @@ export default function ContactPage() {
 
         <Footer />
       </main>
-    </>
   )
 }
