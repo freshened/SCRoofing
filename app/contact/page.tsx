@@ -14,6 +14,8 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
 import Head from "next/head"
+import { ProtectedEmail } from "@/components/protected-email"
+import { ENCODED_EMAIL } from "@/lib/email-utils"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -122,12 +124,10 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <h4 className="font-semibold mb-1">Email</h4>
-                        <a
-                          href="mailto:info@stuartconradroofing.com"
+                        <ProtectedEmail
+                          encoded={ENCODED_EMAIL}
                           className="text-muted-foreground hover:text-foreground transition-colors"
-                        >
-                          info@stuartconradroofing.com
-                        </a>
+                        />
                         <p className="text-sm text-muted-foreground mt-1">We'll respond within 24 hours</p>
                       </div>
                     </div>

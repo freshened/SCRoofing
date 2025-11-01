@@ -1,5 +1,7 @@
 import Link from "next/link"
 import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react"
+import { ProtectedEmail } from "@/components/protected-email"
+import { ENCODED_EMAIL } from "@/lib/email-utils"
 
 export function Footer() {
   return (
@@ -126,12 +128,10 @@ export function Footer() {
               <li className="flex items-start gap-2">
                 <Mail className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                 <div>
-                  <a
-                    href="mailto:info@stuartconradroofing.com"
+                  <ProtectedEmail
+                    encoded={ENCODED_EMAIL}
                     className="text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    info@stuartconradroofing.com
-                  </a>
+                  />
                 </div>
               </li>
               <li className="flex items-start gap-2">
