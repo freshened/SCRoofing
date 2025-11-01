@@ -11,7 +11,7 @@ export const metadata = {
   description:
     "Fast, reliable roof repair services in Greater Cincinnati, Northern Kentucky, and Eastern Indiana. Emergency repairs, leak fixes, storm damage restoration. Call today!",
   alternates: {
-    canonical: "https://stuartconradroofing.com/services/roof-repairs",
+    canonical: "https://scroofin.vercel.app/services/roof-repairs",
   },
 }
 

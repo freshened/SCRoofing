@@ -12,7 +12,7 @@ export const metadata = {
   description:
     "Professional roofing, siding, gutter, and painting services in Northern Kentucky. Serving Covington, Florence, Independence, Fort Thomas, and surrounding areas. Free quotes.",
   alternates: {
-    canonical: "https://stuartconradroofing.com/locations/northern-kentucky",
+    canonical: "https://scroofin.vercel.app/locations/northern-kentucky",
   },
 }
 

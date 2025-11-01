@@ -19,7 +19,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://stuartconradroofing.com"),
+  metadataBase: new URL("https://scroofin.vercel.app"),
   title: {
     default: "Roofing Services | Cincinnati, KY, IN - Stuart Conrad",
     template: "%s | Stuart Conrad",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://stuartconradroofing.com",
+    url: "https://scroofin.vercel.app",
     siteName: "Stuart Conrad Roofing Services",
     title: "Roofing Services | Tri-State Area - Stuart Conrad",
     description:

@@ -11,7 +11,7 @@ export const metadata = {
   description:
     "Professional roof installation services in Greater Cincinnati, Northern Kentucky, and Eastern Indiana. GAF certified contractors with lifetime warranties. Free quotes available.",
   alternates: {
-    canonical: "https://stuartconradroofing.com/services/roof-installation",
+    canonical: "https://scroofin.vercel.app/services/roof-installation",
   },
 }
 

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Browse our gallery of completed roofing, siding, gutter, and painting projects in Greater Cincinnati, Northern Kentucky, and Eastern Indiana. See our quality workmanship.",
   alternates: {
-    canonical: "https://stuartconradroofing.com/gallery",
+    canonical: "https://scroofin.vercel.app/gallery",
   },
 }
 

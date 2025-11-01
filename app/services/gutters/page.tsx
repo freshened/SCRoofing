@@ -11,7 +11,7 @@ export const metadata = {
   description:
     "Professional gutter installation, repair, and gutter guard services in Greater Cincinnati, Northern Kentucky, and Eastern Indiana. Protect your home's foundation.",
   alternates: {
-    canonical: "https://stuartconradroofing.com/services/gutters",
+    canonical: "https://scroofin.vercel.app/services/gutters",
   },
 }
 

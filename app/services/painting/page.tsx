@@ -11,7 +11,7 @@ export const metadata = {
   description:
     "Professional interior and exterior painting services in Greater Cincinnati, Northern Kentucky, and Eastern Indiana. Quality paints, expert application, beautiful results.",
   alternates: {
-    canonical: "https://stuartconradroofing.com/services/painting",
+    canonical: "https://scroofin.vercel.app/services/painting",
   },
 }
 

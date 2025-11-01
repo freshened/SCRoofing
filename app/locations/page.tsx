@@ -11,7 +11,7 @@ export const metadata = {
   description:
     "Serving Greater Cincinnati OH, Northern Kentucky, and Eastern Indiana with professional roofing, siding, gutter, and painting services. Find your local service area.",
   alternates: {
-    canonical: "https://stuartconradroofing.com/locations",
+    canonical: "https://scroofin.vercel.app/locations",
   },
 }
 

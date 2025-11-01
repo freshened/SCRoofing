@@ -10,17 +10,17 @@ export const metadata = {
   description:
     "Flexible financing solutions for your roofing needs. Stuart Conrad Roofing Services offers GreenSky financing options to help manage the cost of new roofs, repairs, and home improvements in Greater Cincinnati, OH.",
   alternates: {
-    canonical: "https://stuartconradroofing.com/financing",
+    canonical: "https://scroofin.vercel.app/financing",
   },
   openGraph: {
     title: "Roofing Financing | GreenSky - Stuart Conrad",
     description:
       "Flexible financing solutions through GreenSky for roofing projects. Get the quality roof you need with payment options that fit your budget.",
-    url: "https://stuartconradroofing.com/financing",
+    url: "https://scroofin.vercel.app/financing",
     siteName: "Stuart Conrad Roofing Services",
     images: [
       {
-        url: "https://stuartconradroofing.com/og-image.jpg",
+        url: "https://scroofin.vercel.app/og-image.jpg",
         width: 1200,
         height: 630,
       },

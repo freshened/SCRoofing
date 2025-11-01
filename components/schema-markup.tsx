@@ -13,9 +13,9 @@ export function SchemaMarkup({ type, data }: SchemaMarkupProps) {
           "@context": "https://schema.org",
           "@type": "RoofingContractor",
           name: "Stuart Conrad Roofing Services",
-          image: "https://stuartconradroofing.com/logo.png",
-          "@id": "https://stuartconradroofing.com",
-          url: "https://stuartconradroofing.com",
+          image: "https://scroofin.vercel.app/logo.png",
+          "@id": "https://scroofin.vercel.app",
+          url: "https://scroofin.vercel.app",
           telephone: "+15133800592",
           email: "info@stuartconradroofing.com",
           address: {
@@ -70,9 +70,9 @@ export function SchemaMarkup({ type, data }: SchemaMarkupProps) {
         return {
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          "@id": "https://stuartconradroofing.com",
+          "@id": "https://scroofin.vercel.app",
           name: "Stuart Conrad Roofing Services",
-          image: "https://stuartconradroofing.com/logo.png",
+          image: "https://scroofin.vercel.app/logo.png",
           telephone: "+15133800592",
           email: "info@stuartconradroofing.com",
           address: {

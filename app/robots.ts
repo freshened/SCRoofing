@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/"],
     },
-    sitemap: "https://stuartconradroofing.com/sitemap.xml",
+    sitemap: "https://scroofin.vercel.app/sitemap.xml",
   }
 }

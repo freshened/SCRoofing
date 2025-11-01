@@ -11,17 +11,17 @@ export const metadata = {
   description:
     "Complete roofing and home improvement services in Greater Cincinnati, Northern Kentucky, and Eastern Indiana. Roof installation, repairs, gutters, painting, siding, and box cutter services.",
   alternates: {
-    canonical: "https://stuartconradroofing.com/services",
+    canonical: "https://scroofin.vercel.app/services",
   },
   openGraph: {
     title: "Roofing & Home Services | Stuart Conrad",
     description:
       "Professional roofing, siding, gutter, painting, and home improvement services throughout the Tri-State area.",
-    url: "https://stuartconradroofing.com/services",
+    url: "https://scroofin.vercel.app/services",
     siteName: "Stuart Conrad Roofing Services",
     images: [
       {
-        url: "https://stuartconradroofing.com/og-image.jpg",
+        url: "https://scroofin.vercel.app/og-image.jpg",
         width: 1200,
         height: 630,
       },

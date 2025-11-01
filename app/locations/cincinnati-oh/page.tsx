@@ -12,7 +12,7 @@ export const metadata = {
   description:
     "Professional roofing, siding, gutter, and painting services in Greater Cincinnati, OH. Serving Mason, West Chester, Loveland, Blue Ash, and surrounding areas. Free quotes.",
   alternates: {
-    canonical: "https://stuartconradroofing.com/locations/cincinnati-oh",
+    canonical: "https://scroofin.vercel.app/locations/cincinnati-oh",
   },
 }
 

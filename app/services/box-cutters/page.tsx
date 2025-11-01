@@ -11,7 +11,7 @@ export const metadata = {
   description:
     "Professional box cutter installation and maintenance services in Greater Cincinnati, Northern Kentucky, and Eastern Indiana. Commercial and residential solutions.",
   alternates: {
-    canonical: "https://stuartconradroofing.com/services/box-cutters",
+    canonical: "https://scroofin.vercel.app/services/box-cutters",
   },
 }
 

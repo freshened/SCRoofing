@@ -11,7 +11,7 @@ export const metadata = {
   description:
     "Professional house siding installation and repair in Greater Cincinnati, Northern Kentucky, and Eastern Indiana. Vinyl, fiber cement, and more. Boost curb appeal and energy efficiency.",
   alternates: {
-    canonical: "https://stuartconradroofing.com/services/siding",
+    canonical: "https://scroofin.vercel.app/services/siding",
   },
 }
 

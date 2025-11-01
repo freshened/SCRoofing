@@ -15,17 +15,17 @@ export const metadata = {
   keywords:
     "roofing Cincinnati, roof repair, roof installation, gutter services, house siding, painting services, Northern Kentucky roofing, Eastern Indiana roofing",
   alternates: {
-    canonical: "https://stuartconradroofing.com",
+    canonical: "https://scroofin.vercel.app",
   },
   openGraph: {
     title: "Roofing Services | Tri-State Area - Stuart Conrad",
     description:
       "30+ years of professional roofing services in Cincinnati, Northern Kentucky, and Eastern Indiana. GAF certified contractors.",
-    url: "https://stuartconradroofing.com",
+    url: "https://scroofin.vercel.app",
     siteName: "Stuart Conrad Roofing Services",
     images: [
       {
-        url: "https://stuartconradroofing.com/og-image.jpg",
+        url: "https://scroofin.vercel.app/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Stuart Conrad Roofing Services",
@@ -38,7 +38,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Roofing Services | Tri-State Area - Stuart Conrad",
     description: "30+ years of professional roofing services. GAF certified contractors serving OH, KY, and IN.",
-    images: ["https://stuartconradroofing.com/og-image.jpg"],
+    images: ["https://scroofin.vercel.app/og-image.jpg"],
   },
 }
 

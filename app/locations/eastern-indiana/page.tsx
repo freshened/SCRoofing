@@ -12,7 +12,7 @@ export const metadata = {
   description:
     "Professional roofing, siding, gutter, and painting services in Eastern Indiana. Serving Lawrenceburg, Aurora, Dillsboro, and surrounding areas. Free quotes available.",
   alternates: {
-    canonical: "https://stuartconradroofing.com/locations/eastern-indiana",
+    canonical: "https://scroofin.vercel.app/locations/eastern-indiana",
   },
 }
 

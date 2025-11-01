@@ -10,17 +10,17 @@ export const metadata = {
   description:
     "Learn about Stuart Conrad Roofing Services. Serving Greater Cincinnati, Northern Kentucky, and Eastern Indiana with over 30 years of roofing excellence. GAF Certified contractors.",
   alternates: {
-    canonical: "https://stuartconradroofing.com/about",
+    canonical: "https://scroofin.vercel.app/about",
   },
   openGraph: {
     title: "About Us | 30+ Years Excellence - Stuart Conrad",
     description:
       "GAF Master Elite certified roofing contractor with over 30 years serving the Tri-State area. Quality workmanship and exceptional service.",
-    url: "https://stuartconradroofing.com/about",
+    url: "https://scroofin.vercel.app/about",
     siteName: "Stuart Conrad Roofing Services",
     images: [
       {
-        url: "https://stuartconradroofing.com/og-image.jpg",
+        url: "https://scroofin.vercel.app/og-image.jpg",
         width: 1200,
         height: 630,
       },
