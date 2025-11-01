@@ -9,13 +9,16 @@ import { Footer } from "@/components/footer"
 import { SchemaMarkup } from "@/components/schema-markup"
 
 export const metadata = {
-  title: "Stuart Conrad Roofing Services | Cincinnati, Northern KY, Eastern IN",
+  title: "Roofing Services | Cincinnati, KY, IN - Stuart Conrad",
   description:
     "Professional roofing, siding, gutter, and painting services in Greater Cincinnati, Northern Kentucky, and Eastern Indiana. GAF certified with 30+ years experience. Free quotes.",
   keywords:
     "roofing Cincinnati, roof repair, roof installation, gutter services, house siding, painting services, Northern Kentucky roofing, Eastern Indiana roofing",
+  alternates: {
+    canonical: "https://stuartconradroofing.com",
+  },
   openGraph: {
-    title: "Stuart Conrad Roofing Services | Tri-State Area Roofing Experts",
+    title: "Roofing Services | Tri-State Area - Stuart Conrad",
     description:
       "30+ years of professional roofing services in Cincinnati, Northern Kentucky, and Eastern Indiana. GAF certified contractors.",
     url: "https://stuartconradroofing.com",
@@ -33,7 +36,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stuart Conrad Roofing Services | Tri-State Area Roofing Experts",
+    title: "Roofing Services | Tri-State Area - Stuart Conrad",
     description: "30+ years of professional roofing services. GAF certified contractors serving OH, KY, and IN.",
     images: ["https://stuartconradroofing.com/og-image.jpg"],
   },

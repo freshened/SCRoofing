@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Shield, Award, Clock, Phone, FileText } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
+import { ClientImage } from "@/components/client-image"
 import { BusinessHoursStatus } from "@/components/business-hours-status"
 
 export function Hero() {
@@ -9,13 +9,14 @@ export function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <Image
+        <ClientImage
           src="/modern-house-with-beautiful-roof-aerial-view-blue-.jpg"
           alt="Professional roofing"
           fill
           className="object-cover"
           priority
           sizes="100vw"
+          quality={75}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-secondary/30 to-primary/40" />
       </div>

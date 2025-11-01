@@ -8,9 +8,12 @@ import Link from "next/link"
 import Image from "next/image"
 
 export const metadata = {
-  title: "Roofing Services in Greater Cincinnati, OH - Stuart Conrad Roofing",
+  title: "Roofing Cincinnati, OH | Stuart Conrad",
   description:
     "Professional roofing, siding, gutter, and painting services in Greater Cincinnati, OH. Serving Mason, West Chester, Loveland, Blue Ash, and surrounding areas. Free quotes.",
+  alternates: {
+    canonical: "https://stuartconradroofing.com/locations/cincinnati-oh",
+  },
 }
 
 export default function CincinnatiPage() {
@@ -26,8 +29,9 @@ export default function CincinnatiPage() {
             alt="Cincinnati Roofing Services"
             fill
             className="object-cover opacity-20"
-            priority
+            loading="lazy"
             sizes="100vw"
+            quality={50}
           />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,12 +58,15 @@ export default function CincinnatiPage() {
               <p className="text-lg text-muted-foreground mb-6">
                 For over three decades, Stuart Conrad Roofing Services has been the trusted choice for homeowners
                 throughout Greater Cincinnati. We understand the unique challenges that Ohio weather presents to your
-                roof, from harsh winters to humid summers, and we're equipped to handle it all.
+                roof, from harsh winters with freezing temperatures and ice accumulation to humid summers with intense storms. Cincinnati's climate requires roofing systems that can withstand temperature fluctuations, heavy rainfall, and occasional severe weather events, and we're equipped with the knowledge and materials to handle it all.
               </p>
               <p className="text-lg text-muted-foreground mb-6">
                 As a GAF Master Elite certified contractor, we bring the highest level of expertise to every project,
                 whether it's a complete roof replacement, emergency repair, or new gutter installation. Our local team
-                is committed to protecting Cincinnati homes with quality workmanship and exceptional service.
+                is committed to protecting Cincinnati homes with quality workmanship and exceptional service. We've built our reputation by serving communities from Mason to West Chester, Loveland to Blue Ash, understanding the distinct character and needs of each neighborhood.
+              </p>
+              <p className="text-lg text-muted-foreground mb-6">
+                Cincinnati homeowners trust us because we're local, licensed, and experienced with the specific building codes and architectural styles found throughout the region. From historic homes in Hyde Park to modern developments in West Chester, we provide solutions that respect your home's character while ensuring maximum protection and energy efficiency.
               </p>
             </div>
             <div className="glass p-8 rounded-2xl">

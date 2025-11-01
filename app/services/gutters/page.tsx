@@ -7,9 +7,12 @@ import Link from "next/link"
 import Image from "next/image"
 
 export const metadata = {
-  title: "Gutter Services - Stuart Conrad Roofing | Installation, Repair & Guards",
+  title: "Gutter Services | Install & Repair - Stuart Conrad",
   description:
     "Professional gutter installation, repair, and gutter guard services in Greater Cincinnati, Northern Kentucky, and Eastern Indiana. Protect your home's foundation.",
+  alternates: {
+    canonical: "https://stuartconradroofing.com/services/gutters",
+  },
 }
 
 export default function GuttersPage() {
@@ -25,8 +28,9 @@ export default function GuttersPage() {
             alt="Gutter Services"
             fill
             className="object-cover opacity-20"
-            priority
+            loading="lazy"
             sizes="100vw"
+            quality={50}
           />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

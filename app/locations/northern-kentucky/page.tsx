@@ -8,9 +8,12 @@ import Link from "next/link"
 import Image from "next/image"
 
 export const metadata = {
-  title: "Roofing Services in Northern Kentucky - Stuart Conrad Roofing",
+  title: "Roofing Northern Kentucky | Stuart Conrad",
   description:
     "Professional roofing, siding, gutter, and painting services in Northern Kentucky. Serving Covington, Florence, Independence, Fort Thomas, and surrounding areas. Free quotes.",
+  alternates: {
+    canonical: "https://stuartconradroofing.com/locations/northern-kentucky",
+  },
 }
 
 export default function NorthernKentuckyPage() {
@@ -26,8 +29,9 @@ export default function NorthernKentuckyPage() {
             alt="Northern Kentucky Roofing Services"
             fill
             className="object-cover opacity-20"
-            priority
+            loading="lazy"
             sizes="100vw"
+            quality={50}
           />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,12 +58,15 @@ export default function NorthernKentuckyPage() {
               <p className="text-lg text-muted-foreground mb-6">
                 Stuart Conrad Roofing Services has been protecting Northern Kentucky homes for over 30 years. We
                 understand the unique weather patterns and architectural styles of the region, from historic homes in
-                Covington to modern developments in Florence.
+                Covington to modern developments in Florence. Northern Kentucky's climate experiences seasonal extremes, with cold, wet winters and hot, humid summers that can take a toll on roofing systems, siding, and gutters.
               </p>
               <p className="text-lg text-muted-foreground mb-6">
                 Our team of GAF certified professionals is dedicated to providing Northern Kentucky homeowners with
                 superior roofing, siding, gutter, and painting services. We combine quality materials with expert
-                craftsmanship to ensure your home is protected for years to come.
+                craftsmanship to ensure your home is protected for years to come. We're fully licensed in Kentucky and familiar with local building codes, ensuring all work meets or exceeds state requirements.
+              </p>
+              <p className="text-lg text-muted-foreground mb-6">
+                From the charming riverfront communities of Covington and Newport to the growing suburbs of Florence and Independence, we've built strong relationships with homeowners throughout Northern Kentucky. Whether you're maintaining a historic home's character or enhancing a newer property's value, we provide solutions tailored to your specific needs and budget.
               </p>
             </div>
             <div className="glass p-8 rounded-2xl">

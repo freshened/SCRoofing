@@ -7,9 +7,12 @@ import Link from "next/link"
 import Image from "next/image"
 
 export const metadata = {
-  title: "Painting Services - Stuart Conrad Roofing | Interior & Exterior Painting",
+  title: "Painting Services | Interior & Exterior - Stuart Conrad",
   description:
     "Professional interior and exterior painting services in Greater Cincinnati, Northern Kentucky, and Eastern Indiana. Quality paints, expert application, beautiful results.",
+  alternates: {
+    canonical: "https://stuartconradroofing.com/services/painting",
+  },
 }
 
 export default function PaintingPage() {
@@ -25,8 +28,9 @@ export default function PaintingPage() {
             alt="Painting Services"
             fill
             className="object-cover opacity-20"
-            priority
+            loading="lazy"
             sizes="100vw"
+            quality={50}
           />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

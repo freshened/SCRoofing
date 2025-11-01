@@ -7,11 +7,14 @@ import Link from "next/link"
 import Image from "next/image"
 
 export const metadata = {
-  title: "Our Services - Stuart Conrad Roofing | Roofing, Siding, Gutters & More",
+  title: "Roofing Services | Cincinnati, KY, IN - Stuart Conrad",
   description:
     "Complete roofing and home improvement services in Greater Cincinnati, Northern Kentucky, and Eastern Indiana. Roof installation, repairs, gutters, painting, siding, and box cutter services.",
+  alternates: {
+    canonical: "https://stuartconradroofing.com/services",
+  },
   openGraph: {
-    title: "Roofing & Home Improvement Services | Stuart Conrad Roofing",
+    title: "Roofing & Home Services | Stuart Conrad",
     description:
       "Professional roofing, siding, gutter, painting, and home improvement services throughout the Tri-State area.",
     url: "https://stuartconradroofing.com/services",
@@ -91,8 +94,9 @@ export default function ServicesPage() {
             alt="Services background"
             fill
             className="object-cover opacity-20"
-            priority
+            loading="lazy"
             sizes="100vw"
+            quality={50}
           />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -100,16 +104,28 @@ export default function ServicesPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance">
               Our <span className="text-primary">Services</span>
             </h1>
-            <p className="text-xl text-muted-foreground text-balance">
+            <p className="text-xl text-muted-foreground text-balance mb-4">
               Comprehensive roofing and home improvement solutions for the Tri-State area
+            </p>
+            <p className="text-lg text-muted-foreground text-balance max-w-2xl mx-auto">
+              For over 30 years, Stuart Conrad Roofing Services has been the trusted choice for homeowners throughout Greater Cincinnati, Northern Kentucky, and Eastern Indiana. As a GAF Master Elite certified contractor, we offer a complete range of roofing, siding, gutter, and painting services designed to protect, enhance, and add value to your home. Our experienced team combines quality materials with expert craftsmanship to deliver lasting results you can count on.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services Overview */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto mb-12 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Complete Home Improvement Solutions</h2>
+            <p className="text-lg text-muted-foreground mb-4">
+              Whether you need a complete roof replacement, emergency repairs, or want to enhance your home's exterior with new siding and gutters, we have the expertise and resources to handle projects of any size. Our comprehensive service offerings ensure you have a single, trusted contractor for all your home improvement needs.
+            </p>
+            <p className="text-lg text-muted-foreground">
+              We understand that your home is one of your most significant investments. That's why we approach every project with attention to detail, using premium materials and proven installation techniques. From initial consultation to final cleanup, we're committed to exceeding your expectations and protecting your home for years to come.
+            </p>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <Card key={index} className="glass p-8 hover:scale-105 transition-transform group">

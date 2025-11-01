@@ -7,9 +7,12 @@ import Link from "next/link"
 import Image from "next/image"
 
 export const metadata = {
-  title: "Box Cutter Services - Stuart Conrad Roofing | Installation & Maintenance",
+  title: "Box Cutter Services | Install & Maintenance - Stuart Conrad",
   description:
     "Professional box cutter installation and maintenance services in Greater Cincinnati, Northern Kentucky, and Eastern Indiana. Commercial and residential solutions.",
+  alternates: {
+    canonical: "https://stuartconradroofing.com/services/box-cutters",
+  },
 }
 
 export default function BoxCuttersPage() {
@@ -25,8 +28,9 @@ export default function BoxCuttersPage() {
             alt="Box Cutter Services"
             fill
             className="object-cover opacity-20"
-            priority
+            loading="lazy"
             sizes="100vw"
+            quality={50}
           />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

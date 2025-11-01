@@ -7,9 +7,12 @@ import Link from "next/link"
 import Image from "next/image"
 
 export const metadata = {
-  title: "Roof Installation Services - Stuart Conrad Roofing | GAF Certified",
+  title: "Roof Installation | GAF Certified - Stuart Conrad",
   description:
     "Professional roof installation services in Greater Cincinnati, Northern Kentucky, and Eastern Indiana. GAF certified contractors with lifetime warranties. Free quotes available.",
+  alternates: {
+    canonical: "https://stuartconradroofing.com/services/roof-installation",
+  },
 }
 
 export default function RoofInstallationPage() {
@@ -25,8 +28,9 @@ export default function RoofInstallationPage() {
             alt="Roof Installation"
             fill
             className="object-cover opacity-20"
-            priority
+            loading="lazy"
             sizes="100vw"
+            quality={50}
           />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

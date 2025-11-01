@@ -8,9 +8,12 @@ import Link from "next/link"
 import Image from "next/image"
 
 export const metadata = {
-  title: "Roofing Services in Eastern Indiana - Stuart Conrad Roofing",
+  title: "Roofing Eastern Indiana | Stuart Conrad",
   description:
     "Professional roofing, siding, gutter, and painting services in Eastern Indiana. Serving Lawrenceburg, Aurora, Dillsboro, and surrounding areas. Free quotes available.",
+  alternates: {
+    canonical: "https://stuartconradroofing.com/locations/eastern-indiana",
+  },
 }
 
 export default function EasternIndianaPage() {
@@ -26,8 +29,9 @@ export default function EasternIndianaPage() {
             alt="Eastern Indiana Roofing Services"
             fill
             className="object-cover opacity-20"
-            priority
+            loading="lazy"
             sizes="100vw"
+            quality={50}
           />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,12 +58,15 @@ export default function EasternIndianaPage() {
               <p className="text-lg text-muted-foreground mb-6">
                 For over 30 years, Stuart Conrad Roofing Services has been the go-to roofing contractor for Eastern
                 Indiana homeowners. We bring big-city expertise with small-town service to communities throughout the
-                region.
+                region. Eastern Indiana's climate presents unique challenges, with cold winters that can bring freezing temperatures and snow, followed by warm, humid summers with frequent thunderstorms. These weather patterns demand roofing systems that can handle moisture, temperature swings, and occasional severe weather.
               </p>
               <p className="text-lg text-muted-foreground mb-6">
                 Whether you're in Lawrenceburg, Aurora, or any of the surrounding communities, our team is ready to
                 provide expert roofing, siding, gutter, and painting services. We're committed to protecting your home
-                with quality materials and professional installation.
+                with quality materials and professional installation. As a licensed Indiana contractor, we understand local building codes and work with area building departments to ensure all projects meet state and local requirements.
+              </p>
+              <p className="text-lg text-muted-foreground mb-6">
+                Eastern Indiana homeowners appreciate our personalized approach and attention to detail. From riverfront communities like Lawrenceburg and Rising Sun to the charming small towns throughout Dearborn County and surrounding areas, we've earned our reputation by treating every home as if it were our own. We provide honest assessments, fair pricing, and quality workmanship that stands the test of time.
               </p>
             </div>
             <div className="glass p-8 rounded-2xl">

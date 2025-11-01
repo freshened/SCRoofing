@@ -7,9 +7,12 @@ import Link from "next/link"
 import Image from "next/image"
 
 export const metadata = {
-  title: "Roof Repair Services - Stuart Conrad Roofing | Emergency Repairs Available",
+  title: "Roof Repair | Emergency Service - Stuart Conrad",
   description:
     "Fast, reliable roof repair services in Greater Cincinnati, Northern Kentucky, and Eastern Indiana. Emergency repairs, leak fixes, storm damage restoration. Call today!",
+  alternates: {
+    canonical: "https://stuartconradroofing.com/services/roof-repairs",
+  },
 }
 
 export default function RoofRepairsPage() {
@@ -25,8 +28,9 @@ export default function RoofRepairsPage() {
             alt="Roof Repairs"
             fill
             className="object-cover opacity-20"
-            priority
+            loading="lazy"
             sizes="100vw"
+            quality={50}
           />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

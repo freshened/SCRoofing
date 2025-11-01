@@ -6,11 +6,14 @@ import { ArrowRight, CreditCard, Shield, CheckCircle2 } from "lucide-react"
 import Image from "next/image"
 
 export const metadata = {
-  title: "Financing Options - Stuart Conrad Roofing Services | GreenSky Financing",
+  title: "Roofing Financing | GreenSky - Stuart Conrad",
   description:
     "Flexible financing solutions for your roofing needs. Stuart Conrad Roofing Services offers GreenSky financing options to help manage the cost of new roofs, repairs, and home improvements in Greater Cincinnati, OH.",
+  alternates: {
+    canonical: "https://stuartconradroofing.com/financing",
+  },
   openGraph: {
-    title: "Financing Options - Stuart Conrad Roofing Services",
+    title: "Roofing Financing | GreenSky - Stuart Conrad",
     description:
       "Flexible financing solutions through GreenSky for roofing projects. Get the quality roof you need with payment options that fit your budget.",
     url: "https://stuartconradroofing.com/financing",
@@ -26,7 +29,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Financing Options - Stuart Conrad Roofing Services",
+    title: "Roofing Financing | GreenSky - Stuart Conrad",
     description: "Flexible financing solutions for your roofing needs through GreenSky.",
   },
 }
@@ -44,8 +47,9 @@ export default function FinancingPage() {
             alt="Financing"
             fill
             className="object-cover opacity-20"
-            priority
+            loading="lazy"
             sizes="100vw"
+            quality={50}
           />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -69,14 +73,14 @@ export default function FinancingPage() {
           <div className="max-w-4xl mx-auto">
             <Card className="glass p-8 md:p-12 rounded-2xl">
               <div className="prose prose-lg max-w-none">
+                <p className="text-lg leading-relaxed text-muted-foreground mb-6">
+                  Stuart Conrad Roofing Services understands that a new roof or significant home improvement project can be a substantial investment. That's why we've partnered with GreenSky to offer flexible financing solutions that make quality roofing and home improvements accessible to homeowners throughout Greater Cincinnati, Northern Kentucky, and Eastern Indiana.
+                </p>
+                <p className="text-lg leading-relaxed text-muted-foreground mb-6">
+                  Whether you're dealing with unexpected storm damage that requires immediate attention, facing necessary repairs on an aging roof, or planning a home improvement project to enhance your property's value and curb appeal, our financing options ensure you don't have to compromise on quality or delay important maintenance. We believe every homeowner deserves access to premium materials and expert craftsmanship, regardless of budget constraints.
+                </p>
                 <p className="text-lg leading-relaxed text-muted-foreground mb-8">
-                  Stuart Conrad Roofing Services understands that a new roof or significant repairs can be a sizable
-                  investment. That's why we offer flexible financing options through GreenSky to help you manage the
-                  cost. Serving the Greater Cincinnati, OH area, we're committed to providing top-tier roofing services
-                  with financing solutions that fit your budget. Whether you're dealing with storm damage, an aging roof,
-                  or planning a new construction project, our financing options ensure you don't have to compromise on
-                  quality. Call or text us today to discuss your specific needs and learn more about our financing
-                  options.
+                  Our financing process is simple and straightforward. Through GreenSky's trusted platform, you can apply for financing with competitive rates and flexible payment terms. Many of our customers qualify for same-day approval, allowing you to start your project immediately. We work with you to find a payment plan that fits your financial situation, so you can protect and enhance your home without putting undue strain on your budget. Call or text us today to discuss your specific needs and learn more about how financing can make your roofing project a reality.
                 </p>
 
                 <div className="text-center mt-12">

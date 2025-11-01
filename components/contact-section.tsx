@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Phone, Mail, MapPin, Send } from "lucide-react"
-import Image from "next/image"
+import { ClientImage } from "@/components/client-image"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -28,13 +28,14 @@ export function ContactSection() {
     <section id="contact" className="py-24 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 z-0">
-        <Image
+        <ClientImage
           src="/professional-roofing-team-working-on-house.jpg"
           alt="Contact us"
           fill
           className="object-cover"
           loading="lazy"
           sizes="100vw"
+          quality={60}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-secondary/70 to-primary/80" />
       </div>

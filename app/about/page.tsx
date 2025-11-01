@@ -6,11 +6,14 @@ import Link from "next/link"
 import Image from "next/image"
 
 export const metadata = {
-  title: "About Us - Stuart Conrad Roofing Services | 30+ Years Experience",
+  title: "About Us | 30+ Years Experience - Stuart Conrad",
   description:
     "Learn about Stuart Conrad Roofing Services. Serving Greater Cincinnati, Northern Kentucky, and Eastern Indiana with over 30 years of roofing excellence. GAF Certified contractors.",
+  alternates: {
+    canonical: "https://stuartconradroofing.com/about",
+  },
   openGraph: {
-    title: "About Stuart Conrad Roofing Services | 30+ Years of Excellence",
+    title: "About Us | 30+ Years Excellence - Stuart Conrad",
     description:
       "GAF Master Elite certified roofing contractor with over 30 years serving the Tri-State area. Quality workmanship and exceptional service.",
     url: "https://stuartconradroofing.com/about",
@@ -26,7 +29,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Stuart Conrad Roofing Services | 30+ Years of Excellence",
+    title: "About Us | 30+ Years Excellence - Stuart Conrad",
     description: "GAF Master Elite certified roofing contractor serving the Tri-State area for over 30 years.",
   },
 }
@@ -44,8 +47,9 @@ export default function AboutPage() {
             alt="Stuart Conrad Roofing background"
             fill
             className="object-cover opacity-20"
-            priority
+            loading="lazy"
             sizes="100vw"
+            quality={50}
           />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState, useEffect } from "react"
 import { decodeEmail } from "@/lib/email-utils"
 
 interface ProtectedEmailProps {
@@ -9,25 +9,46 @@ interface ProtectedEmailProps {
 }
 
 export function ProtectedEmail({ encoded, className }: ProtectedEmailProps) {
-  const [email, setEmail] = useState<string>("")
+  const [email, setEmail] = useState<string>(() => {
+    // Try to decode immediately on client side
+    if (typeof window !== "undefined" && encoded) {
+      try {
+        return decodeEmail(encoded)
+      } catch {
+        return ""
+      }
+    }
+    return ""
+  })
 
   useEffect(() => {
-    try {
-      const decoded = decodeEmail(encoded)
-      setEmail(decoded)
-    } catch {
-      setEmail("")
+    // Ensure email is decoded after mount
+    if (!email && encoded) {
+      try {
+        const decoded = decodeEmail(encoded)
+        if (decoded && decoded.trim()) {
+          setEmail(decoded)
+        }
+      } catch (error) {
+        console.error("Failed to decode email in useEffect:", error)
+      }
     }
-  }, [encoded])
+  }, [encoded, email])
 
-  if (!email) {
-    return null
+  // Show email link once we have it
+  if (email) {
+    return (
+      <a href={`mailto:${email}`} className={className}>
+        {email}
+      </a>
+    )
   }
 
+  // Show invisible placeholder during loading (prevents layout shift)
   return (
-    <a href={`mailto:${email}`} className={className}>
-      {email}
-    </a>
+    <span className={className} style={{ visibility: "hidden" }} aria-hidden="true">
+      {" "}
+    </span>
   )
 }
 

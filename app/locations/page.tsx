@@ -7,9 +7,12 @@ import Link from "next/link"
 import Image from "next/image"
 
 export const metadata = {
-  title: "Service Areas - Stuart Conrad Roofing | Cincinnati, Kentucky, Indiana",
+  title: "Service Areas | Cincinnati, KY, IN - Stuart Conrad",
   description:
     "Serving Greater Cincinnati OH, Northern Kentucky, and Eastern Indiana with professional roofing, siding, gutter, and painting services. Find your local service area.",
+  alternates: {
+    canonical: "https://stuartconradroofing.com/locations",
+  },
 }
 
 const locations = [
@@ -56,8 +59,9 @@ export default function LocationsPage() {
             alt="Service Areas"
             fill
             className="object-cover opacity-20"
-            priority
+            loading="lazy"
             sizes="100vw"
+            quality={50}
           />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -65,9 +69,12 @@ export default function LocationsPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance">
               Serving the <span className="text-primary">Tri-State Area</span>
             </h1>
-            <p className="text-xl text-muted-foreground text-balance">
+            <p className="text-xl text-muted-foreground text-balance mb-4">
               Professional roofing and home improvement services across Greater Cincinnati, Northern Kentucky, and
               Eastern Indiana
+            </p>
+            <p className="text-lg text-muted-foreground text-balance max-w-2xl mx-auto">
+              Stuart Conrad Roofing Services has been proudly serving the Tri-State area for over 30 years, providing comprehensive roofing, siding, gutter, and painting services to homeowners and businesses throughout Greater Cincinnati, Northern Kentucky, and Eastern Indiana. Our deep understanding of regional weather patterns, building codes, and architectural styles allows us to deliver solutions perfectly tailored to your area's unique needs.
             </p>
           </div>
         </div>

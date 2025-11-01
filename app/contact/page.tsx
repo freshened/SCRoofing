@@ -13,10 +13,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Phone, Mail, MapPin, Clock } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
-import Head from "next/head"
 import { ProtectedEmail } from "@/components/protected-email"
 import { ENCODED_EMAIL } from "@/lib/email-utils"
-
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
@@ -58,15 +56,7 @@ export default function ContactPage() {
   }
 
   return (
-    <>
-      <Head>
-        <title>Contact Us - Stuart Conrad Roofing | Free Quotes Available</title>
-        <meta
-          name="description"
-          content="Contact Stuart Conrad Roofing Services for a free quote. Serving Greater Cincinnati, Northern Kentucky, and Eastern Indiana. Call (513) 380-0592 or request a quote online."
-        />
-      </Head>
-      <main className="min-h-screen">
+    <main className="min-h-screen">
         <Navigation />
 
         {/* Hero Section */}
@@ -77,8 +67,9 @@ export default function ContactPage() {
               alt="Contact Us"
               fill
               className="object-cover opacity-20"
-              priority
+              loading="lazy"
               sizes="100vw"
+              quality={50}
             />
           </div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">

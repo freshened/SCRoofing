@@ -7,9 +7,12 @@ import Link from "next/link"
 import Image from "next/image"
 
 export const metadata = {
-  title: "House Siding Services - Stuart Conrad Roofing | Vinyl, Fiber Cement & More",
+  title: "House Siding | Vinyl & Fiber Cement - Stuart Conrad",
   description:
     "Professional house siding installation and repair in Greater Cincinnati, Northern Kentucky, and Eastern Indiana. Vinyl, fiber cement, and more. Boost curb appeal and energy efficiency.",
+  alternates: {
+    canonical: "https://stuartconradroofing.com/services/siding",
+  },
 }
 
 export default function SidingPage() {
@@ -25,8 +28,9 @@ export default function SidingPage() {
             alt="House Siding"
             fill
             className="object-cover opacity-20"
-            priority
+            loading="lazy"
             sizes="100vw"
+            quality={50}
           />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

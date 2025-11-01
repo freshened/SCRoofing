@@ -7,7 +7,7 @@ import Image from "next/image"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "404 - Page Not Found | Stuart Conrad Roofing Services",
+  title: "404 - Page Not Found | Stuart Conrad",
   description: "The page you're looking for doesn't exist. Return to our homepage or explore our roofing, siding, gutter, and painting services.",
   robots: {
     index: false,
@@ -30,6 +30,7 @@ export default function NotFound() {
             className="object-cover opacity-10"
             priority
             sizes="100vw"
+            quality={40}
           />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

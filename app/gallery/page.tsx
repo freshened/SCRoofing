@@ -26,6 +26,7 @@ export default function GalleryPage() {
             className="object-cover opacity-20"
             priority
             sizes="100vw"
+            quality={50}
           />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -65,6 +66,7 @@ export default function GalleryPage() {
                     className="object-cover transition-transform duration-300 group-hover:scale-110"
                     loading="lazy"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    quality={85}
                   />
                 </div>
               ))}

@@ -21,8 +21,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://stuartconradroofing.com"),
   title: {
-    default: "Stuart Conrad Roofing Services | Cincinnati, Northern KY, Eastern IN",
-    template: "%s | Stuart Conrad Roofing Services",
+    default: "Roofing Services | Cincinnati, KY, IN - Stuart Conrad",
+    template: "%s | Stuart Conrad",
   },
   description:
     "Professional roofing, siding, gutter, and painting services in Greater Cincinnati, Northern Kentucky, and Eastern Indiana. GAF certified with 30+ years experience. Free quotes available.",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://stuartconradroofing.com",
     siteName: "Stuart Conrad Roofing Services",
-    title: "Stuart Conrad Roofing Services | Tri-State Area Roofing Experts",
+    title: "Roofing Services | Tri-State Area - Stuart Conrad",
     description:
       "30+ years of professional roofing services in Cincinnati, Northern Kentucky, and Eastern Indiana. GAF certified contractors offering roof installation, repairs, gutters, siding, and painting.",
     images: [
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stuart Conrad Roofing Services | Tri-State Area Roofing Experts",
+    title: "Roofing Services | Tri-State Area - Stuart Conrad",
     description: "30+ years of professional roofing services. GAF certified contractors serving OH, KY, and IN.",
     images: ["/og-image.jpg"],
   },
