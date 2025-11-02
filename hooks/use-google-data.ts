@@ -35,7 +35,7 @@ interface GoogleData {
 
 let cachedData: GoogleData | null = null
 let cacheTimestamp: number = 0
-const CACHE_DURATION = 5 * 60 * 1000
+const CACHE_DURATION = 1 * 60 * 1000
 
 export function useGoogleData() {
   const [data, setData] = useState<GoogleData | null>(cachedData)

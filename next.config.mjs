@@ -11,7 +11,7 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    qualities: [40, 50, 60, 75, 85],
+    qualities: [40, 50, 60, 75, 85, 95],
     remotePatterns: [
       {
         protocol: 'https',

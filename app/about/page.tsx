@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card"
 import { Shield, Award, Users, Clock, CheckCircle2, Star } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { GAFBadge } from "@/components/gaf-badge"
 
 export const metadata = {
   title: "About Us | 30+ Years Experience - Stuart Conrad",
@@ -176,12 +177,10 @@ export default function AboutPage() {
           <div className="glass p-12 rounded-2xl max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8">
               <div className="flex items-center gap-4">
-                <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Award className="h-8 w-8 text-primary" />
-                </div>
+                <GAFBadge size="md" />
                 <div>
-                  <h3 className="font-semibold text-lg">GAF Master Elite Contractor</h3>
-                  <p className="text-sm text-muted-foreground">Top 3% of roofing contractors nationwide</p>
+                  <h3 className="font-semibold text-lg">GAF Master Elite Certified</h3>
+                  <p className="text-sm text-muted-foreground">Top 2% of roofing contractors nationwide</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">

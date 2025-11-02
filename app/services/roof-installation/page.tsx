@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card"
 import { CheckCircle2, Shield, Clock, Award } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { GAFBadge } from "@/components/gaf-badge"
 
 export const metadata = {
   title: "Roof Installation | GAF Certified - Stuart Conrad",
@@ -181,13 +182,19 @@ export default function RoofInstallationPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             {[
-              { icon: Shield, label: "GAF Certified", value: "Master Elite" },
+              { label: "GAF Certified", value: "Master Elite", badge: true as const },
               { icon: Award, label: "Experience", value: "30+ Years" },
               { icon: CheckCircle2, label: "Warranty", value: "Lifetime Options" },
               { icon: Clock, label: "Response Time", value: "Same Day" },
             ].map((item, index) => (
               <div key={index} className="glass p-6 rounded-2xl">
-                <item.icon className="h-12 w-12 text-primary mx-auto mb-4" />
+                {"badge" in item && item.badge ? (
+                  <div className="flex justify-center mb-4">
+                    <GAFBadge size="md" />
+                  </div>
+                ) : "icon" in item && item.icon ? (
+                  <item.icon className="h-12 w-12 text-primary mx-auto mb-4" />
+                ) : null}
                 <div className="text-2xl font-bold mb-2">{item.value}</div>
                 <div className="text-sm text-muted-foreground">{item.label}</div>
               </div>

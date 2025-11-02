@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card"
 import { MapPin, CheckCircle2, Phone, Star } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { GAFBadge } from "@/components/gaf-badge"
 
 export const metadata = {
   title: "Roofing Cincinnati, OH | Stuart Conrad",
@@ -143,9 +144,9 @@ export default function CincinnatiPage() {
                 description: "Decades of experience serving Cincinnati homes",
               },
               {
-                icon: CheckCircle2,
                 title: "GAF Certified",
                 description: "Master Elite contractor with top certifications",
+                badge: true as const,
               },
               {
                 icon: Phone,
@@ -159,7 +160,13 @@ export default function CincinnatiPage() {
               },
             ].map((item, index) => (
               <Card key={index} className="glass p-6 text-center">
-                <item.icon className="h-12 w-12 text-primary mx-auto mb-4" />
+                {"badge" in item && item.badge ? (
+                  <div className="flex justify-center mb-4">
+                    <GAFBadge size="md" />
+                  </div>
+                ) : "icon" in item && item.icon ? (
+                  <item.icon className="h-12 w-12 text-primary mx-auto mb-4" />
+                ) : null}
                 <h3 className="font-semibold mb-2">{item.title}</h3>
                 <p className="text-sm text-muted-foreground">{item.description}</p>
               </Card>

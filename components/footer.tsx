@@ -2,6 +2,8 @@ import Link from "next/link"
 import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react"
 import { ProtectedEmail } from "@/components/protected-email"
 import { ENCODED_EMAIL } from "@/lib/email-utils"
+import { GAFBadge } from "@/components/gaf-badge"
+import Image from "next/image"
 
 export function Footer() {
   return (
@@ -10,13 +12,23 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4">
-              Stuart Conrad <span className="text-primary">Roofing</span>
-            </h3>
+            <Link href="/" className="inline-block mb-4">
+              <Image
+                src="/SCRlogo.JPG"
+                alt="Stuart Conrad Roofing"
+                width={200}
+                height={60}
+                className="h-12 w-auto object-contain"
+              />
+            </Link>
             <p className="text-muted-foreground mb-4">
               Over 30 years of excellence serving the Tri-State area with quality roofing and home improvement
               solutions.
             </p>
+            <div className="flex items-center gap-3 mb-4">
+              <GAFBadge size="sm" />
+              <span className="text-xs text-muted-foreground">GAF Master Elite Certified</span>
+            </div>
             <div className="flex gap-4">
               <a
                 href="https://www.facebook.com/StuartConradRoofingServicesLlc/"

@@ -57,7 +57,7 @@ export async function GET() {
     const response = await fetch(
       `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=rating,user_ratings_total,reviews,url,opening_hours,photos&key=${apiKey}`,
       {
-        next: { revalidate: 3600 },
+        next: { revalidate: 60 },
       }
     )
 
@@ -101,15 +101,17 @@ export async function GET() {
             nextTime = `${displayHours}:${minutes.toString().padStart(2, "0")} ${ampm}`
           }
         } else {
+          const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
           let nextOpenPeriod = null
-          let daysToAdd = 0
+          let actualDaysToAdd = 0
 
-          for (let i = 0; i < 7; i++) {
+          for (let i = 1; i <= 7; i++) {
             const checkDay = (currentDay + i) % 7
             const period = openingHours.periods.find((p) => p.open.day === checkDay)
+            
             if (period?.open?.time) {
               nextOpenPeriod = period
-              daysToAdd = i
+              actualDaysToAdd = i
               break
             }
           }
@@ -120,16 +122,16 @@ export async function GET() {
             const minutes = parseInt(openTime.substring(2, 4))
             const ampm = hours >= 12 ? "PM" : "AM"
             const displayHours = hours > 12 ? hours - 12 : hours === 0 ? 12 : hours
-            if (daysToAdd === 0) {
-              nextTime = `today at ${displayHours}:${minutes.toString().padStart(2, "0")} ${ampm}`
-            } else if (daysToAdd === 1) {
+            const openDay = nextOpenPeriod.open.day
+            const dayName = dayNames[openDay] || "Monday"
+            
+            if (actualDaysToAdd === 1) {
               nextTime = `tomorrow at ${displayHours}:${minutes.toString().padStart(2, "0")} ${ampm}`
             } else {
-              const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-              const openDay = nextOpenPeriod.open.day
-              const dayName = dayNames[openDay] || "Monday"
               nextTime = `${dayName} at ${displayHours}:${minutes.toString().padStart(2, "0")} ${ampm}`
             }
+          } else {
+            nextTime = null
           }
         }
       }

@@ -15,6 +15,7 @@ import Image from "next/image"
 import { useState } from "react"
 import { ProtectedEmail } from "@/components/protected-email"
 import { ENCODED_EMAIL } from "@/lib/email-utils"
+import { GAFBadge } from "@/components/gaf-badge"
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
@@ -156,8 +157,8 @@ export default function ContactPage() {
                       <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                       <span>30+ years of experience</span>
                     </li>
-                    <li className="flex items-start gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    <li className="flex items-center gap-3">
+                      <GAFBadge size="sm" className="w-8 h-8 flex-shrink-0" />
                       <span>GAF Master Elite certified</span>
                     </li>
                     <li className="flex items-start gap-2">

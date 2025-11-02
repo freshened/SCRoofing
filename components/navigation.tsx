@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"
+import Image from "next/image"
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -39,16 +40,22 @@ export function Navigation() {
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        {/* Desktop Layout - unchanged */}
+        <div className="hidden lg:flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-primary">
-              Stuart Conrad <span className="text-secondary">Roofing</span>
-            </h1>
+          <Link href="/" className="flex-shrink-0 flex items-center h-full py-2">
+            <Image
+              src="/SCRlogo.JPG"
+              alt="Stuart Conrad Roofing"
+              width={200}
+              height={60}
+              className="h-full w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -68,15 +75,30 @@ export function Navigation() {
               </Link>
             </Button>
           </div>
+        </div>
 
-          {/* Mobile Menu Button */}
+        {/* Mobile Layout - logo centered */}
+        <div className="lg:hidden flex items-center justify-center h-20 relative">
+          {/* Mobile Menu Button - Left */}
           <button 
-            className="lg:hidden p-3 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-foreground/5 transition-colors" 
+            className="absolute left-0 p-3 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-foreground/5 transition-colors" 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
             <Menu className="h-6 w-6" />
           </button>
+
+          {/* Logo - Centered */}
+          <Link href="/" className="flex-shrink-0 flex items-center h-full py-2">
+            <Image
+              src="/SCRlogo.JPG"
+              alt="Stuart Conrad Roofing"
+              width={200}
+              height={60}
+              className="h-full w-auto object-contain"
+              priority
+            />
+          </Link>
         </div>
       </div>
 
@@ -84,8 +106,14 @@ export function Navigation() {
       <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
         <SheetContent side="right" className="w-[85vw] sm:w-[400px] p-0">
           <SheetHeader className="px-6 pt-8 pb-6 border-b">
-            <SheetTitle className="text-2xl font-bold text-primary text-left">
-              Stuart Conrad <span className="text-secondary">Roofing</span>
+            <SheetTitle className="text-left">
+              <Image
+                src="/SCRlogo.JPG"
+                alt="Stuart Conrad Roofing"
+                width={200}
+                height={60}
+                className="h-12 w-auto object-contain"
+              />
             </SheetTitle>
           </SheetHeader>
           
