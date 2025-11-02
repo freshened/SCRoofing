@@ -113,6 +113,56 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Business Hours */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Business Hours</h2>
+              <p className="text-lg text-muted-foreground">
+                Same-Day and Walk-In Appointments Are Available | Emergency Service May Be Available
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card className="glass p-8">
+                <h3 className="text-2xl font-bold mb-6">Regular Hours</h3>
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center pb-3 border-b">
+                    <span className="font-semibold">Mon - Fri</span>
+                    <span className="text-muted-foreground">8:00 am - 6:00 pm</span>
+                  </div>
+                  <div className="flex justify-between items-center pb-3 border-b">
+                    <span className="font-semibold">Saturday</span>
+                    <span className="text-muted-foreground">8:00 am - 12:00 pm</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="font-semibold">Sunday</span>
+                    <span className="text-muted-foreground">Closed</span>
+                  </div>
+                </div>
+              </Card>
+              <Card className="glass p-8">
+                <h3 className="text-2xl font-bold mb-6">Holiday Hours</h3>
+                <div className="space-y-3">
+                  <div className="pb-3 border-b">
+                    <p className="text-sm text-muted-foreground">Monday, September 1, 2025</p>
+                    <p className="font-semibold">Closed</p>
+                  </div>
+                  <div className="pb-3 border-b">
+                    <p className="text-sm text-muted-foreground">Thursday, November 27, 2025</p>
+                    <p className="font-semibold">Closed</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Thursday, December 25, 2025</p>
+                    <p className="font-semibold">Closed</p>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
