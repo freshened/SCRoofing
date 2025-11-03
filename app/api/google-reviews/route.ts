@@ -104,15 +104,33 @@ export async function GET() {
           const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
           let nextOpenPeriod = null
           let actualDaysToAdd = 0
+          const currentHour = now.getHours()
+          const currentMinute = now.getMinutes()
+          const currentTimeInMinutes = currentHour * 60 + currentMinute
 
-          for (let i = 1; i <= 7; i++) {
-            const checkDay = (currentDay + i) % 7
-            const period = openingHours.periods.find((p) => p.open.day === checkDay)
+          const todayPeriod = openingHours.periods.find((p) => p.open.day === currentDay)
+          if (todayPeriod?.open?.time) {
+            const openTime = todayPeriod.open.time
+            const openHours = parseInt(openTime.substring(0, 2))
+            const openMinutes = parseInt(openTime.substring(2, 4))
+            const openTimeInMinutes = openHours * 60 + openMinutes
             
-            if (period?.open?.time) {
-              nextOpenPeriod = period
-              actualDaysToAdd = i
-              break
+            if (openTimeInMinutes > currentTimeInMinutes) {
+              nextOpenPeriod = todayPeriod
+              actualDaysToAdd = 0
+            }
+          }
+
+          if (!nextOpenPeriod) {
+            for (let i = 1; i <= 7; i++) {
+              const checkDay = (currentDay + i) % 7
+              const period = openingHours.periods.find((p) => p.open.day === checkDay)
+              
+              if (period?.open?.time) {
+                nextOpenPeriod = period
+                actualDaysToAdd = i
+                break
+              }
             }
           }
 
@@ -125,7 +143,20 @@ export async function GET() {
             const openDay = nextOpenPeriod.open.day
             const dayName = dayNames[openDay] || "Monday"
             
-            if (actualDaysToAdd === 1) {
+            if (actualDaysToAdd === 0) {
+              const openTimeInMinutes = hours * 60 + minutes
+              const timeUntilOpen = openTimeInMinutes - currentTimeInMinutes
+              const hoursUntilOpen = Math.floor(timeUntilOpen / 60)
+              const minutesUntilOpen = timeUntilOpen % 60
+              
+              if (hoursUntilOpen > 0) {
+                nextTime = `in ${hoursUntilOpen} hour${hoursUntilOpen === 1 ? "" : "s"} at ${displayHours}:${minutes.toString().padStart(2, "0")} ${ampm}`
+              } else if (minutesUntilOpen > 0) {
+                nextTime = `in ${minutesUntilOpen} minute${minutesUntilOpen === 1 ? "" : "s"} at ${displayHours}:${minutes.toString().padStart(2, "0")} ${ampm}`
+              } else {
+                nextTime = `at ${displayHours}:${minutes.toString().padStart(2, "0")} ${ampm}`
+              }
+            } else if (actualDaysToAdd === 1) {
               nextTime = `tomorrow at ${displayHours}:${minutes.toString().padStart(2, "0")} ${ampm}`
             } else {
               nextTime = `${dayName} at ${displayHours}:${minutes.toString().padStart(2, "0")} ${ampm}`
