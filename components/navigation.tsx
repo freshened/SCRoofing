@@ -29,6 +29,7 @@ export function Navigation() {
     { href: "/gallery", label: "Gallery" },
     { href: "/locations", label: "Locations" },
     { href: "/financing", label: "Financing" },
+    { href: "/careers", label: "Careers" },
     { href: "/contact", label: "Contact" },
   ]
 
@@ -40,9 +41,9 @@ export function Navigation() {
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Desktop Layout - unchanged */}
-        <div className="hidden lg:flex items-center justify-between h-20">
-          {/* Logo */}
+        {/* Desktop Layout */}
+        <div className="hidden lg:flex items-center justify-between h-20 gap-4">
+          {/* Logo - Left */}
           <Link href="/" className="flex-shrink-0 flex items-center h-full py-2">
             <Image
               src="/SCRlogo.JPG"
@@ -54,20 +55,24 @@ export function Navigation() {
             />
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="flex items-center gap-6">
+          {/* Desktop Navigation - Centered */}
+          <div className="flex items-center justify-center gap-4 flex-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "text-foreground/80 hover:text-foreground transition-colors font-medium",
+                  "text-foreground/80 hover:text-foreground transition-colors font-medium whitespace-nowrap text-sm",
                   pathname === link.href && "text-primary font-semibold",
                 )}
               >
                 {link.label}
               </Link>
             ))}
+          </div>
+
+          {/* Button - Right */}
+          <div className="flex-shrink-0">
             <Button size="lg" className="gap-2" asChild>
               <Link href="/contact">
                 <Phone className="h-4 w-4" />

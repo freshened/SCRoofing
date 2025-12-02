@@ -9,21 +9,10 @@ interface ProtectedEmailProps {
 }
 
 export function ProtectedEmail({ encoded, className }: ProtectedEmailProps) {
-  const [email, setEmail] = useState<string>(() => {
-    // Try to decode immediately on client side
-    if (typeof window !== "undefined" && encoded) {
-      try {
-        return decodeEmail(encoded)
-      } catch {
-        return ""
-      }
-    }
-    return ""
-  })
+  const [email, setEmail] = useState<string>("")
 
   useEffect(() => {
-    // Ensure email is decoded after mount
-    if (!email && encoded) {
+    if (encoded) {
       try {
         const decoded = decodeEmail(encoded)
         if (decoded && decoded.trim()) {
@@ -33,7 +22,7 @@ export function ProtectedEmail({ encoded, className }: ProtectedEmailProps) {
         console.error("Failed to decode email in useEffect:", error)
       }
     }
-  }, [encoded, email])
+  }, [encoded])
 
   // Show email link once we have it
   if (email) {
